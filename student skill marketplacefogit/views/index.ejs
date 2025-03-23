@@ -1,0 +1,22 @@
+<div class="main-content">
+    <header>
+        <h1>Home</h1>
+        <div class="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Search skills or projects...">
+        </div>
+    </header>
+    <div class="content">
+        <div class="card animate">
+            <div class="card-content">
+                <h2>Welcome to Student Skill Marketplace</h2>
+                <p>Connect with students, showcase your skills, and collaborate on projects.</p>
+                <% if (user) { %>
+                    <p>Hello, <%= user.display_name %>!</p>
+                <% } else { %>
+                    <a href="/login" class="cta-button">Login with Google</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>

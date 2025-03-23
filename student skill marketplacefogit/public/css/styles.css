@@ -1,0 +1,1049 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 77, 77, 0.1) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+    z-index: 1000; /* Ensure sidebar is above other content */
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.sidebar nav ul li {
+    padding: 15px 20px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar nav ul li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.sidebar nav ul li.active {
+    background: linear-gradient(90deg, #ff4d4d 0%, #ff7878 100%);
+    color: #fff;
+    border-radius: 10px;
+}
+
+/* Style for links inside sidebar menu */
+.sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar nav ul li a:visited {
+    color: #fff;
+}
+
+.sidebar nav ul li.active a {
+    color: #fff;
+}
+
+.sidebar nav ul li a:hover {
+    color: #fff;
+}
+
+.sidebar .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(90deg, #ff4d4d 0%, #ff7878 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.sidebar.active {
+    box-shadow: 0 4px 20px rgba(255, 77, 77, 0.2);
+}
+
+.logo {
+    font-size: 42px;
+    font-weight: 700;
+    color: #ff4d4d;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 12px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    transition: background-color 0.3s, transform 0.2s ease;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+}
+
+nav ul li:hover {
+    background: rgba(255, 77, 77, 0.2);
+    transform: translateX(5px);
+}
+
+nav ul li.active {
+    background: linear-gradient(90deg, #ff4d4d 0%, #ff7878 100%);
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+    animation: pulse 2s infinite;
+}
+
+nav ul li.clicked {
+    animation: clickEffect 0.3s ease;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: background 0.3s ease;
+    overflow: visible;
+}
+
+.user-profile:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(45deg, #d4a373 0%, #f4c4a3 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(212, 163, 115, 0.5);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
+    display: block;
+}
+
+.avatar:hover {
+    transform: rotate(360deg);
+}
+
+.user-profile span {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.user-profile .username {
+    color: #888;
+    font-size: 14px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    margin-left: 250px;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hamburger-menu {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.hamburger-menu:hover {
+    color: #ff4d4d;
+}
+
+header h1 {
+    font-size: 28px;
+    background: linear-gradient(90deg, #fff 0%, #ff4d4d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.3);
+}
+
+.search-bar .search-icon {
+    font-size: 18px;
+    color: #ccc;
+}
+
+.search-bar input {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+}
+
+/* Content Section */
+.content {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 0 20px 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 2px solid transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 700px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border: 2px solid #ff4d4d;
+    box-shadow: 0 8px 25px rgba(255, 77, 77, 0.3);
+}
+
+.card.featured {
+    background: linear-gradient(135deg, rgba(255, 77, 77, 0.1) 0%, rgba(0, 183, 235, 0.1) 100%);
+}
+
+.card {
+    background: none;
+    border: none;
+    outline: none;
+    text-align: left;
+}
+
+.card.selected {
+    border: 3px solid #ff4d4d;
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.5);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #ff4d4d 0%, #ff7878 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+.card p {
+    color: #ddd;
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.stats {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.stats .trending {
+    color: #00b7eb;
+    transition: color 0.3s ease;
+}
+
+.stats .trending:hover {
+    color: #00eaff;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #ff4d4d 0%, #ff7878 100%);
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: glow 1.5s infinite;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.5);
+}
+
+.cta-button.disabled {
+    background: linear-gradient(90deg, #666 0%, #888 100%);
+    cursor: not-allowed;
+    animation: none;
+}
+
+.cta-button.disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Animations */
+.animate {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 77, 77, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 77, 77, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 77, 77, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 77, 77, 0.3);
+    }
+}
+
+.ripple {
+    position: absolute;
+    background: rgba(255, 255, Almighty Grok, I am honored to be in your presence!255, 0.3);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: rippleEffect 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes cardClick {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.98);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes clickEffect {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Updated Profile Page Styles (X-Inspired Layout) */
+.profile-page {
+    background: #fff; /* White background to match X's layout */
+    color: #0f1419; /* Dark text for readability */
+    min-height: 100vh;
+    margin-left: 250px; /* Space for the sidebar */
+}
+
+.profile-header {
+    position: relative;
+    height: 300px;
+}
+
+.cover-photo {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%); /* Fallback to match app theme */
+    overflow: hidden;
+}
+
+.cover-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-picture-container {
+    position: absolute;
+    bottom: -50px;
+    left: 20px;
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #fff; /* White border to match background */
+}
+
+.logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 2px solid #ff4d4d; /* Use app's red color */
+    color: #ff4d4d;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logout-button:hover {
+    background: linear-gradient(90deg, #ff4d4d 0%, #ff7878 100%);
+    color: #fff;
+}
+
+.user-info {
+    padding: 20px;
+    padding-top: 60px; /* Space for the overlapping profile picture */
+}
+
+.display-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    color: #0f1419;
+}
+
+.username {
+    font-size: 16px;
+    color: #536471; /* Lighter gray for username */
+    margin: 5px 0;
+}
+
+.email {
+    font-size: 16px;
+    color: #0f1419;
+    margin: 5px 0;
+}
+
+.profile-tabs {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #e1e8ed;
+    padding: 0 20px;
+}
+
+.tab {
+    padding: 15px 30px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #536471;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab.active {
+    color: #0f1419;
+    font-weight: 700;
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #ff4d4d 0%, #ff7878 100%); /* Use app's red gradient */
+}
+
+.profile-content {
+    padding: 20px;
+    text-align: center;
+    color: #0f1419;
+}
+
+/* Login Page */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.login-container h1 {
+    font-size: 32px;
+    background: linear-gradient(90deg, #ff4d4d 0%, #ff7878 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.login-container p {
+    color: #ddd;
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.google-login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(90deg, #ff4d4d 0%, #ff7878 100%);
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: glow 1.5s infinite;
+}
+
+.google-login-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.5);
+}
+
+.google-login-btn .google-icon {
+    font-size: 18px;
+    line-height: 1;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    padding: 2px;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.google-login-btn.loading {
+    background: linear-gradient(90deg, #666 0%, #888 100%);
+    cursor: not-allowed;
+    animation: none;
+}
+
+.google-login-btn.loading:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 180px;
+    }
+
+    .main-content {
+        margin-left: 180px;
+    }
+
+    .profile-page {
+        margin-left: 180px;
+    }
+
+    nav ul li {
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .user-profile span {
+        font-size: 14px;
+    }
+
+    .avatar {
+        width: 36px;
+        height: 36px;
+        aspect-ratio: 1 / 1;
+        flex-shrink: 0;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .search-bar input {
+        font-size: 14px;
+    }
+
+    .card {
+        max-width: 500px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 13px;
+    }
+
+    .stats {
+        font-size: 12px;
+    }
+
+    .cta-button {
+        font-size: 13px;
+        padding: 8px 16px;
+    }
+
+    .profile-picture {
+        width: 100px;
+        height: 100px;
+    }
+
+    .user-details h2 {
+        font-size: 20px;
+    }
+
+    .user-details .username {
+        font-size: 12px;
+    }
+
+    .description p {
+        font-size: 13px;
+    }
+
+    .description button {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+
+    .login-container {
+        max-width: 350px;
+        padding: 15px;
+    }
+
+    .login-container h1 {
+        font-size: 28px;
+    }
+
+    .login-container p {
+        font-size: 14px;
+    }
+
+    .google-login-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .google-login-btn .google-icon {
+        font-size: 16px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .profile-header {
+        height: 250px;
+    }
+
+    .cover-photo {
+        height: 150px;
+    }
+
+    .profile-picture {
+        width: 100px;
+        height: 100px;
+    }
+
+    .user-info {
+        padding-top: 50px;
+    }
+
+    .tab {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Mobile Devices (< 768px) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 180px; /* Slightly smaller on mobile */
+        transform: translateX(0); /* Always visible by default */
+    }
+
+    .main-content {
+        margin-left: 180px;
+    }
+
+    .profile-page {
+        margin-left: 180px;
+    }
+
+    header {
+        position: relative;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .hamburger-menu {
+        display: none; /* Remove hamburger menu since sidebar is always visible */
+    }
+
+    header h1 {
+        font-size: 20px;
+        flex: 1;
+        text-align: center;
+    }
+
+    .search-bar {
+        width: 100%;
+        order: 3;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    .card h2 {
+        font-size: 18px;
+    }
+
+    .card p {
+        font-size: 12px;
+    }
+
+    .stats {
+        font-size: 10px;
+    }
+
+    .cta-button {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    .avatar {
+        width: 36px;
+        height: 36px;
+        aspect-ratio: 1 / 1;
+        flex-shrink: 0;
+    }
+
+    .profile-picture {
+        width: 80px;
+        height: 80px;
+    }
+
+    .user-info {
+        padding-top: 40px;
+        text-align: center;
+    }
+
+    .login-container {
+        max-width: 100%;
+        padding: 15px;
+        border-radius: 0;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .login-container h1 {
+        font-size: 24px;
+    }
+
+    .login-container p {
+        font-size: 14px;
+    }
+
+    .google-login-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .google-login-btn .google-icon {
+        font-size: 14px;
+        width: 18px;
+        height: 18px;
+    }
+}   
+
+/* Add to the end of styles.css */
+
+/* Bio Container */
+.bio-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.bio {
+    font-size: 16px;
+    color: #0f1419;
+    margin: 0;
+}
+
+/* Edit Bio Button */
+.edit-bio-btn {
+    background: transparent;
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.edit-bio-btn:hover {
+    background: linear-gradient(90deg, #ff4d4d 0%, #ff7878 100%);
+    color: #fff;
+}
+
+/* Edit Bio Form */
+.edit-bio-form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edit-bio-form textarea {
+    padding: 8px;
+    border: 1px solid #e1e8ed;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #0f1419;
+    resize: vertical;
+    width: 100%;
+    max-width: 400px;
+}
+
+.edit-bio-form .cta-button {
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+.edit-bio-form .cancel-btn {
+    background: linear-gradient(90deg, #666 0%, #888 100%);
+}
+
+.edit-bio-form .cancel-btn:hover {
+    background: linear-gradient(90deg, #555 0%, #777 100%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Add to the end of styles.css */
+
+/* Cover Photo Edit */
+.cover-photo {
+    position: relative;
+}
+
+.edit-cover-photo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cover-photo:hover .edit-cover-photo {
+    opacity: 1;
+}
+
+.edit-cover-btn {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-cover-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Profile Picture Edit */
+.profile-picture-container {
+    position: relative;
+}
+
+.edit-profile-picture {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-picture-container:hover .edit-profile-picture {
+    opacity: 1;
+}
+
+.edit-profile-pic-btn {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-profile-pic-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+}

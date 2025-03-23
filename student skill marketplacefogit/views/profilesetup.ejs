@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Setup - Student Skill Marketplace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">F</div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li>Notifications</li>
+                    <li>Marketplace</li>
+                    <li>Messages</li>
+                    <li>Settings</li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <div class="avatar"></div>
+                <a href="/profile">
+                    <span>Setting up...</span>
+                    <span class="username">Please complete your profile</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header>
+                <div class="hamburger-menu">Menu</div>
+                <h1>Profile Setup</h1>
+                <div class="search-bar">
+                    <span class="search-icon">Search</span>
+                    <input type="text" placeholder="Search for skills..." disabled>
+                </div>
+            </header>
+
+            <!-- Profile Setup Section -->
+            <section class="profile-setup-section">
+                <div class="setup-card">
+                    <h2>Complete Your Profile</h2>
+                    <p>Please provide the following information to set up your profile.</p>
+                    <form id="profile-setup-form" action="/profile/setup" method="POST">
+                        <div class="form-group">
+                            <label for="username">Username (@)</label>
+                            <input type="text" id="username" name="username" required placeholder="e.g., @ohnoLEOoo">
+                        </div>
+                        <div class="form-group">
+                            <label for="display_name">Display Name</label>
+                            <input type="text" id="display_name" name="display_name" required placeholder="e.g., Leo">
+                        </div>
+                        <button type="submit" class="save-btn">Save Profile</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="/js/profileSetup.js"></script>
+</body>
+</html>

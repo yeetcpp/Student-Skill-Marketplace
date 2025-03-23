@@ -1,0 +1,46 @@
+<div class="profile-page">
+    <!-- Header Section with Cover Photo -->
+    <div class="profile-header">
+        <div class="cover-photo">
+            <img src="https://via.placeholder.com/1500x500" alt="Cover Photo">
+        </div>
+        <div class="profile-picture-container">
+            <img src="<%= user && user.photo_url ? user.photo_url : 'https://via.placeholder.com/150' %>" alt="Profile Picture" class="profile-picture">
+        </div>
+        <a href="/logout" class="logout-button">Logout</a>
+    </div>
+
+    <!-- User Info Section -->
+    <div class="user-info">
+        <div class="display-name-container">
+            <h1 class="display-name"><%= user && user.display_name ? user.display_name : 'User' %></h1>
+            <button class="edit-name-btn" onclick="toggleEditNameForm()">Edit</button>
+        </div>
+        <form id="edit-name-form" class="edit-name-form" action="/profile/update-name" method="POST" style="display: none;">
+            <input type="text" name="display_name" value="<%= user && user.display_name ? user.display_name : 'User' %>" required>
+            <button type="submit" class="cta-button">Save</button>
+            <button type="button" class="cta-button cancel-btn" onclick="toggleEditNameForm()">Cancel</button>
+        </form>
+        <p class="username">@<%= user && user.username ? user.username : 'N/A' %></p>
+        <p class="email">Email: <%= user && user.email ? user.email : 'N/A' %></p>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="profile-tabs">
+        <button class="tab active">Skills</button>
+        <button class="tab">Projects</button>
+        <button class="tab">Connections</button>
+    </div>
+
+    <!-- Content Section -->
+    <div class="profile-content">
+        <p>This is where the user's skills, projects, or connections will be displayed.</p>
+    </div>
+</div>
+
+<script>
+    function toggleEditNameForm() {
+        const form = document.getElementById('edit-name-form');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    }
+</script>

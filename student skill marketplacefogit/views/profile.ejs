@@ -1,0 +1,72 @@
+<div class="profile-page">
+    <!-- Header Section with Cover Photo -->
+    <div class="profile-header">
+        <div class="cover-photo">
+            <img src="<%= user && user.cover_photo_url ? user.cover_photo_url : 'https://via.placeholder.com/1500x500' %>" alt="Cover Photo">
+            <div class="edit-cover-photo">
+                <button class="edit-cover-btn" onclick="document.getElementById('cover-photo-input').click()">Edit Cover Photo</button>
+                <form id="cover-photo-form" action="/profile/update-cover-photo" method="POST" enctype="multipart/form-data" style="display: none;">
+                    <input type="file" id="cover-photo-input" name="cover_photo" accept="image/*" style="display: none;" onchange="console.log('Cover photo selected:', this.files[0]); this.form.submit()">
+                </form>
+            </div>
+        </div>
+        <div class="profile-picture-container">
+            <img src="<%= user && user.photo_url ? user.photo_url : 'https://via.placeholder.com/150' %>" alt="Profile Picture" class="profile-picture">
+            <div class="edit-profile-picture">
+                <button class="edit-profile-pic-btn" onclick="document.getElementById('profile-pic-input').click()">Edit Profile Picture</button>
+                <form id="profile-pic-form" action="/profile/update-profile-picture" method="POST" enctype="multipart/form-data" style="display: none;">
+                    <input type="file" id="profile-pic-input" name="profile_picture" accept="image/*" style="display: none;" onchange="console.log('Profile picture selected:', this.files[0]); this.form.submit()">
+                </form>
+            </div>
+        </div>
+        <a href="/logout" class="logout-button">Logout</a>
+    </div>
+
+    <!-- User Info Section -->
+    <div class="user-info">
+        <div class="display-name-container">
+            <h1 class="display-name"><%= user && user.display_name ? user.display_name : 'User' %></h1>
+            <button class="edit-name-btn" onclick="toggleEditNameForm()">Edit</button>
+        </div>
+        <form id="edit-name-form" class="edit-name-form" action="/profile/update-name" method="POST" style="display: none;">
+            <input type="text" name="display_name" value="<%= user && user.display_name ? user.display_name : 'User' %>" required>
+            <button type="submit" class="cta-button">Save</button>
+            <button type="button" class="cta-button cancel-btn" onclick="toggleEditNameForm()">Cancel</button>
+        </form>
+        <p class="username">@<%= user && user.username ? user.username : 'N/A' %></p>
+        <p class="email">Email: <%= user && user.email ? user.email : 'N/A' %></p>
+        <div class="bio-container">
+            <p class="bio"><%= user && user.bio ? user.bio : 'No bio available.' %></p>
+            <button class="edit-bio-btn" onclick="toggleEditBioForm()">Edit Bio</button>
+        </div>
+        <form id="edit-bio-form" class="edit-bio-form" action="/profile/update-bio" method="POST" style="display: none;">
+            <textarea name="bio" rows="3" placeholder="Tell us about yourself..."><%= user && user.bio ? user.bio : '' %></textarea>
+            <button type="submit" class="cta-button">Save</button>
+            <button type="button" class="cta-button cancel-btn" onclick="toggleEditBioForm()">Cancel</button>
+        </form>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="profile-tabs">
+        <button class="tab active">Skills</button>
+        <button class="tab">Projects</button>
+        <button class="tab">Connections</button>
+    </div>
+
+    <!-- Content Section -->
+    <div class="profile-content">
+        <p>This is where the user's skills, projects, or connections will be displayed.</p>
+    </div>
+</div>
+
+<script>
+    function toggleEditNameForm() {
+        const form = document.getElementById('edit-name-form');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function toggleEditBioForm() {
+        const form = document.getElementById('edit-bio-form');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    }
+</script>

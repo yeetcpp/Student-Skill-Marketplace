@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> - Student Skill Marketplace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">Skill Marketplace</div>
+        <nav>
+            <ul>
+                <li class="<%= page === 'home' ? 'active' : '' %>"><a href="/">Home</a></li>
+                <li class="<%= page === 'profile' ? 'active' : '' %>"><a href="/profile">Profile</a></li>
+                <!-- Add more menu items as needed -->
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <img src="<%= user && user.photo_url ? user.photo_url : 'https://via.placeholder.com/48' %>" alt="User Avatar" class="avatar">
+            <div>
+                <span><%= user && user.display_name ? user.display_name : 'User' %></span>
+                <span class="username">@<%= user && user.username ? user.username : 'N/A' %></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <%- body %>
+</body>
+</html>
