@@ -1,4 +1,8 @@
-The "views" folder has all the HTML based files made for each UI page
-"Public" folder contains all the static files, such as animation, css.
-(ignore the index.html file)
-passport.js
+- The "views" folder has all the HTML based files made for each UI page
+- "Public" folder contains all the static files, such as animation, css.
+- (ignore the index.html file)
+- passport.js contains the database API, URL and google's authentication API and provides functionality
+- .env just contains the API's and other keys
+- server.js is the main JS script which hosts the apps and runs the website.
+- css, as usual styles all the ejs files
+- package.json contains all the node libraries/packages installed
